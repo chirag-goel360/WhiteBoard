@@ -5,14 +5,13 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:whiteboardkit/whiteboardkit.dart';
 
-void main(){
+void main() {
   runApp(
     MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,9 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     controller = new DrawingController();
-    controller.onChange().listen((draw){
-    },
-    );
+    controller.onChange().listen(
+          (draw) {},
+        );
     super.initState();
   }
 
@@ -77,9 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Future<void> sharecode() async{
-    try{
-      RenderRepaintBoundary boundary = globalKey.currentContext.findRenderObject();
+  Future<void> sharecode() async {
+    try {
+      RenderRepaintBoundary boundary =
+          globalKey.currentContext.findRenderObject();
       var item = await boundary.toImage();
       ByteData byteData = await item.toByteData(
         format: ImageByteFormat.png,
@@ -90,8 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
         byteData.buffer.asUint8List(),
         'image/png',
       );
-    }
-    catch(e){
+    } catch (e) {
       print(e.toString());
     }
   }
