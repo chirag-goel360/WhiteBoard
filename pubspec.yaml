@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  whiteboardkit: ^0.2.2
+  whiteboardkit:
   path_provider:
   esys_flutter_share:
   flutter:
